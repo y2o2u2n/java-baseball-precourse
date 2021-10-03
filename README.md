@@ -74,6 +74,8 @@
     - [x] 같은 `Number`가 같은 `Position`에 있으면 `STRIKE`이다.
     - [x] 같은 `Number`가 다른 `Position`에 있으면 `BALL`이다.
     - [x] 같은 `Number`가 전혀 없으면 `FOUR_BALL`이다.
+- `RandomNumberGenerator`
+    - [x] a부터 b까지 숫자 중 n개의 숫자를 중복되지 않게 생성할 수 있다.
 - `Computer`
     - [ ] 임의의 서로 다른 3개의 수로 만들어진 `Balls`를 가진다.
 - `Player`
