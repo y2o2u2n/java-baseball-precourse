@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class BallTest {
@@ -32,5 +33,50 @@ class BallTest {
 	void equals(int number) {
 		// given & when & then
 		assertThat(new Ball(0, number)).isEqualTo(new Ball(0, number));
+	}
+
+	@DisplayName("두 야구공의 숫자와 위치가 같을 경우 스트라이크이다.")
+	@ParameterizedTest
+	@CsvSource({"0,7,0,7", "1,8,1,8"})
+	void strike(int p1, int n1, int p2, int n2) {
+		// given
+		Ball a = new Ball(p1, n1);
+		Ball b = new Ball(p2, n2);
+
+		// when
+		BallStatus status = Ball.compare(a, b);
+
+		// then
+		assertThat(status.isStrike()).isTrue();
+	}
+
+	@DisplayName("두 야구공의 숫자만 같을 경우 볼이다.")
+	@ParameterizedTest
+	@CsvSource({"0,7,1,7", "1,8,2,8"})
+	void ball(int p1, int n1, int p2, int n2) {
+		// given
+		Ball a = new Ball(p1, n1);
+		Ball b = new Ball(p2, n2);
+
+		// when
+		BallStatus status = Ball.compare(a, b);
+
+		// then
+		assertThat(status.isBall()).isTrue();
+	}
+
+	@DisplayName("두 야구공의 숫자가 같지 않을 경우 포볼이다.")
+	@ParameterizedTest
+	@CsvSource({"0,7,0,1", "0,7,1,1"})
+	void four_ball(int p1, int n1, int p2, int n2) {
+		// given
+		Ball a = new Ball(p1, n1);
+		Ball b = new Ball(p2, n2);
+
+		// when
+		BallStatus status = Ball.compare(a, b);
+
+		// then
+		assertThat(status.isFourBall()).isTrue();
 	}
 }

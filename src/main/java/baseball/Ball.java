@@ -11,6 +11,18 @@ public class Ball {
 		this.number = new Number(number);
 	}
 
+	public static BallStatus compare(Ball a, Ball b) {
+		if (a.equals(b)) {
+			return BallStatus.STRIKE;
+		}
+
+		if (a.number.equals(b.number)) {
+			return BallStatus.BALL;
+		}
+
+		return BallStatus.FOUR_BALL;
+	}
+
 	public Position getPosition() {
 		return position;
 	}
