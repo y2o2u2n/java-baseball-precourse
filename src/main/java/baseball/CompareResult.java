@@ -45,9 +45,9 @@ public class CompareResult {
 		return String.join(DELIMITER, snippets);
 	}
 
-	private void addSnippet(List<String> snippets, String format, int strikeCount) {
-		if (strikeCount > 0) {
-			snippets.add(String.format(format, strikeCount));
+	private void addSnippet(List<String> snippets, String format, int count) {
+		if (count > 0) {
+			snippets.add(String.format(format, count));
 		}
 	}
 }

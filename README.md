@@ -32,7 +32,7 @@
 - 프로그램 구현을 완료했을때 src/test/java 폴더의 baseball.ApplicationTest에 있는 2개의 TestCase가 성공해야 한다.
     - ApplicationTest에서 제공하는 2개의 Test Case는 숫자 야구게임 구현을 위한 최소한의 Test Case이다.
     - 필수 요구사항은 아니지만 제공하는 소스 코드를 참고해 숫자 야구게임을 위한 모든 Test Case를 추가해 보는 것도 테스트에 대한 좋은 연습이 될 수 있다.
-- 자바코드컨벤션을지키면서프로그래밍한다.
+- 자바 코드 컨벤션을 지키면서 프로그래밍한다.
     - https://naver.github.io/hackday-conventions-java/
 - indent(인덴트,들여쓰기) depth를 2가 넘지 않도록 구현한다. 1까지만 허용한다.
 - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
@@ -76,9 +76,8 @@
     - [x] 같은 `Number`가 전혀 없으면 `FOUR_BALL`이다.
 - `Computer`
     - [ ] 임의의 서로 다른 3개의 수로 만들어진 `Balls`를 가진다.
-    - [ ] 플레이어가 입력한 `Balls`와 자신의 `Balls`를 비교하여 `CompareResult`를 반환한다.
 - `Player`
-    - [ ] 사용자가 입력한 서로 다른 3개의 수로 만들어진 `Balls`를 가진다.
+    - [ ] `Computer`의 `Balls`를 알아맞추기 위해서 사용자의 입력으로부터 `Balls`를 만들어낸다.
 - `Game`
     - [ ] `CompareResult`가 정답이면 게임이 끝난다.
     - [ ] 게임이 끝나면 게임을 다시 시작하거나 종료할 수 있다.
