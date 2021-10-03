@@ -83,16 +83,17 @@ class BallsTest {
 	@DisplayName("비교 결과를 확인할 수 있다.")
 	@ParameterizedTest
 	@CsvSource({
-		"7,1,3,1,2,3,1,1",
-		"7,1,3,1,4,5,0,1",
-		"7,1,3,6,7,1,0,2",
-		"7,1,3,2,1,6,1,0",
-		"7,1,3,7,1,3,3,0"
+		"7,1,3,1,2,3,1,1,1스트라이크 1볼",
+		"7,1,3,1,4,5,0,1,1볼",
+		"7,1,3,6,7,1,0,2,2볼",
+		"7,1,3,2,1,6,1,0,1스트라이크",
+		"7,1,3,7,1,3,3,0,3스트라이크",
+		"1,2,3,4,5,6,0,0,낫싱"
 	})
 	void compare(
 		int a1, int a2, int a3,
 		int b1, int b2, int b3,
-		int strikeCount, int ballCount
+		int strikeCount, int ballCount, String message
 	) {
 		// given
 		Balls aBalls = new Balls(a1, a2, a3);
@@ -105,7 +106,13 @@ class BallsTest {
 		assertAll(
 			() -> assertThat(result).isNotNull(),
 			() -> assertThat(result.getStrikeCount()).isEqualTo(strikeCount),
-			() -> assertThat(result.getBallCount()).isEqualTo(ballCount)
+			() -> assertThat(result.getBallCount()).isEqualTo(ballCount),
+			() -> {
+				if (result.getStrikeCount() == 3) {
+					assertThat(result.isAnswer()).isTrue();
+				}
+			},
+			() -> assertThat(result.toMessage()).isEqualTo(message)
 		);
 	}
 }
