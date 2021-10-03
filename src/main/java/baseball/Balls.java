@@ -1,8 +1,10 @@
 package baseball;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.PriorityQueue;
 
 public class Balls {
 	private final List<Ball> values;
@@ -17,6 +19,16 @@ public class Balls {
 		values.add(new Ball(1, second));
 		values.add(new Ball(2, third));
 		this.values = values;
+	}
+
+	public static BallStatus compare(Balls aBalls, Ball bBall) {
+		PriorityQueue<BallStatus> pq = new PriorityQueue<>(Comparator.comparing(BallStatus::getPriority));
+
+		for (Ball aBall : aBalls.values) {
+			pq.offer(Ball.compare(aBall, bBall));
+		}
+
+		return pq.poll();
 	}
 
 	public List<Ball> getValues() {

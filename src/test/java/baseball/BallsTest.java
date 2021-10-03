@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -34,5 +35,47 @@ class BallsTest {
 	void equals(int a1, int a2, int a3, int b1, int b2, int b3) {
 		// given & when & then
 		assertThat(new Balls(a1, a2, a3)).isEqualTo(new Balls(b1, b2, b3));
+	}
+
+	@DisplayName("스트라이크")
+	@Test
+	void strike() {
+		// given
+		Balls aBalls = new Balls(1, 2, 3);
+		Ball bBall = new Ball(0, 1);
+
+		// when
+		BallStatus status = Balls.compare(aBalls, bBall);
+
+		// then
+		assertThat(status.isStrike()).isTrue();
+	}
+
+	@DisplayName("볼")
+	@Test
+	void ball() {
+		// given
+		Balls aBalls = new Balls(1, 2, 3);
+		Ball bBall = new Ball(2, 1);
+
+		// when
+		BallStatus status = Balls.compare(aBalls, bBall);
+
+		// then
+		assertThat(status.isBall()).isTrue();
+	}
+
+	@DisplayName("포볼")
+	@Test
+	void four_ball() {
+		// given
+		Balls aBalls = new Balls(1, 2, 3);
+		Ball bBall = new Ball(2, 7);
+
+		// when
+		BallStatus status = Balls.compare(aBalls, bBall);
+
+		// then
+		assertThat(status.isFourBall()).isTrue();
 	}
 }

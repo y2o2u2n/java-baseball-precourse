@@ -1,9 +1,19 @@
 package baseball;
 
 public enum BallStatus {
-	STRIKE,
-	BALL,
-	FOUR_BALL;
+	STRIKE(0),
+	BALL(1),
+	FOUR_BALL(2);
+
+	private final int priority;
+
+	BallStatus(int priority) {
+		this.priority = priority;
+	}
+
+	public int getPriority() {
+		return priority;
+	}
 
 	public boolean isStrike() {
 		return this == STRIKE;
