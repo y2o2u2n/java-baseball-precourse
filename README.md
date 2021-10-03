@@ -63,9 +63,9 @@
     - [x] 3개의 `Ball`로 이루어진다.
     - [x] 3개의 `Ball`은 서로 다른 `Number`를 가진다.
     - [x] `Balls`와 `Ball`을 비교했을 때 `BallStatus`를 얻을 수 있다.
-    - [ ] `Balls`끼리 비교했을 때 `CompareResult`를 얻을 수 있다.
+    - [x] `Balls`끼리 비교했을 때 `CompareResult`를 얻을 수 있다.
 - `CompareResult`
-    - [ ] 스트라이크 수, 볼 수를 확인할 수 있다.
+    - [x] 스트라이크 수, 볼 수를 확인할 수 있다.
 - `BallStatus`
     - [x] `STRIKE`, `BALL`, `FOUR_BALL` 3가지 상태가 있다.
     - [x] 같은 `Number`가 같은 `Position`에 있으면 `STRIKE`이다.

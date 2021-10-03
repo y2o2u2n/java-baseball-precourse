@@ -21,7 +21,18 @@ public class Balls {
 		this.values = values;
 	}
 
-	public static BallStatus compare(Balls aBalls, Ball bBall) {
+	public static CompareResult compare(Balls aBalls, Balls bBalls) {
+		CompareResult result = new CompareResult();
+
+		for (Ball bBall : bBalls.values) {
+			BallStatus status = compare(aBalls, bBall);
+			result.report(status);
+		}
+
+		return result;
+	}
+
+	protected static BallStatus compare(Balls aBalls, Ball bBall) {
 		PriorityQueue<BallStatus> pq = new PriorityQueue<>(Comparator.comparing(BallStatus::getPriority));
 
 		for (Ball aBall : aBalls.values) {
