@@ -54,6 +54,7 @@
 
 - `Number`
     - [x] 1에서 9사이의 숫자 중 하나이다.
+    - [ ] 잘못된 값을 입력할 경우 예외를 던진다.
 - `Position`
     - [x] 0에서 2까지의 숫자 중 하나이다.
 - `Ball`
@@ -66,14 +67,18 @@
     - [x] `Balls`끼리 비교했을 때 `CompareResult`를 얻을 수 있다.
 - `CompareResult`
     - [x] 스트라이크 수, 볼 수를 확인할 수 있다.
+    - [ ] 스트라이크 수가 3이면, 두 `Balls`는 동일하다. 즉, 정답이다.
+    - [ ] 정의된 메세지로 출력할 수 있다. (ex. 1스트라이크, 1스트라이크 1볼, 낫싱)
 - `BallStatus`
     - [x] `STRIKE`, `BALL`, `FOUR_BALL` 3가지 상태가 있다.
     - [x] 같은 `Number`가 같은 `Position`에 있으면 `STRIKE`이다.
     - [x] 같은 `Number`가 다른 `Position`에 있으면 `BALL`이다.
     - [x] 같은 `Number`가 전혀 없으면 `FOUR_BALL`이다.
 - `Computer`
-    - [ ] TBD
+    - [ ] 임의의 서로 다른 3개의 수로 만들어진 `Balls`를 가진다.
+    - [ ] 플레이어가 입력한 `Balls`와 자신의 `Balls`를 비교하여 `CompareResult`를 반환한다.
 - `Player`
-    - [ ] TBD
+    - [ ] 사용자가 입력한 서로 다른 3개의 수로 만들어진 `Balls`를 가진다.
 - `Game`
-    - [ ] TBD
+    - [ ] `CompareResult`가 정답이면 게임이 끝난다.
+    - [ ] 게임이 끝나면 게임을 다시 시작하거나 종료할 수 있다.
