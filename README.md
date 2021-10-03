@@ -57,8 +57,8 @@
 - `Ball`
     - [x] `Number`를 가진다.
 - `Balls`
-    - [ ] 3개의 `Ball`로 이루어진다.
-    - [ ] 3개의 `Ball`은 서로 다른 `Number`를 가진다.
+    - [x] 3개의 `Ball`로 이루어진다.
+    - [x] 3개의 `Ball`은 서로 다른 `Number`를 가진다.
 - `BallsStatus`
     - [ ] 두 `Balls`를 비교했을 때 `STRIKE`, `BALL`, `FOUR_BALL` 중 하나의 상태를 가진다.
     - [ ] 같은 `Number`가 같은 자리에 있으면 `STRIKE`이다.
