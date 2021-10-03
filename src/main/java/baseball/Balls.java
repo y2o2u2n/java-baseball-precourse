@@ -1,6 +1,6 @@
 package baseball;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,7 +12,11 @@ public class Balls {
 			throw new IllegalArgumentException("3개의 야구공은 서로 다른 숫자를 가져야 합니다.");
 		}
 
-		this.values = Arrays.asList(new Ball(first), new Ball(second), new Ball(third));
+		ArrayList<Ball> values = new ArrayList<>();
+		values.add(new Ball(0, first));
+		values.add(new Ball(1, second));
+		values.add(new Ball(2, third));
+		this.values = values;
 	}
 
 	public List<Ball> getValues() {

@@ -54,12 +54,14 @@
 
 - `Number`
     - [x] 1에서 9사이의 숫자 중 하나이다.
+- `Position`
+    - [x] 0에서 2까지의 숫자 중 하나이다.
 - `Ball`
-    - [x] `Number`를 가진다.
+    - [x] `Position`과 `Number`를 가진다.
 - `Balls`
     - [x] 3개의 `Ball`로 이루어진다.
     - [x] 3개의 `Ball`은 서로 다른 `Number`를 가진다.
-- `BallsStatus`
+- `BallStatus`
     - [ ] 두 `Balls`를 비교했을 때 `STRIKE`, `BALL`, `FOUR_BALL` 중 하나의 상태를 가진다.
     - [ ] 같은 `Number`가 같은 자리에 있으면 `STRIKE`이다.
     - [ ] 같은 `Number`가 다른 자리에 있으면 `BALL`이다.
