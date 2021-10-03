@@ -55,7 +55,7 @@
 - `Number`
     - [x] 1에서 9사이의 숫자 중 하나이다.
 - `Ball`
-    - [ ] `Number`를 가진다.
+    - [x] `Number`를 가진다.
 - `Balls`
     - [ ] 3개의 `Ball`로 이루어진다.
     - [ ] 3개의 `Ball`은 서로 다른 `Number`를 가진다.
