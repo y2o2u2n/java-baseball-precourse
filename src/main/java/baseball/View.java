@@ -5,7 +5,7 @@ public class View {
 		System.out.printf("%s%n", message);
 	}
 
-	public static void out(RuntimeException e) {
-		System.out.printf("[ERROR] %s%n", e.getMessage());
+	public static void out(RuntimeException exception) {
+		System.out.printf("[ERROR] %s%n", exception.getMessage());
 	}
 }

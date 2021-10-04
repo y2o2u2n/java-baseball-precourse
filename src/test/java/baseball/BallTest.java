@@ -1,6 +1,7 @@
 package baseball;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,7 +17,10 @@ class BallTest {
 		// given & when
 		Ball ball = new Ball(0, number);
 		// then
-		assertThat(ball.getNumber()).isEqualTo(new Number(number));
+		assertAll(
+			() -> assertThat(ball.getPosition()).isEqualTo(new Position(0)),
+			() -> assertThat(ball.getNumber()).isEqualTo(new Number(number))
+		);
 	}
 
 	@DisplayName("1에서 9사이의 숫자가 아닐 경우 야구공을 생성할 수 없다.")

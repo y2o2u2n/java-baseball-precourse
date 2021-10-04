@@ -11,12 +11,12 @@ public class Ball {
 		this.number = new Number(number);
 	}
 
-	public static BallStatus compare(Ball a, Ball b) {
-		if (a.equals(b)) {
+	public static BallStatus compare(Ball aBall, Ball bBall) {
+		if (aBall.equals(bBall)) {
 			return BallStatus.STRIKE;
 		}
 
-		if (a.number.equals(b.number)) {
+		if (aBall.number.equals(bBall.number)) {
 			return BallStatus.BALL;
 		}
 
@@ -32,12 +32,16 @@ public class Ball {
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		if (this == o)
+	public boolean equals(Object object) {
+		if (this == object) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+
+		if (object == null || getClass() != object.getClass()) {
 			return false;
-		Ball ball = (Ball)o;
+		}
+
+		Ball ball = (Ball)object;
 		return Objects.equals(position, ball.position) && Objects.equals(number, ball.number);
 	}
 
