@@ -8,6 +8,10 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 
 public class Balls {
+	private static final String MESSAGE_ON_INVALID_LENGTH = "3개의 야구공이어야 합니다.";
+	private static final String MESSAGE_ON_NOT_NUMBER = "숫자를 입력해야 합니다.";
+	private static final String MESSAGE_ON_DUPLICATE = "3개의 야구공은 서로 다른 숫자를 가져야 합니다.";
+
 	private final List<Ball> values;
 
 	public Balls(List<Integer> numbers) {
@@ -77,26 +81,26 @@ public class Balls {
 
 	private void validate(String str) {
 		if (str == null || str.length() != 3) {
-			throw new IllegalArgumentException("3개의 야구공이어야 합니다.");
+			throw new IllegalArgumentException(MESSAGE_ON_INVALID_LENGTH);
 		}
 
 		try {
 			Integer.parseInt(str);
 		} catch (NumberFormatException e) {
-			throw new IllegalArgumentException("숫자를 입력해야 합니다.");
+			throw new IllegalArgumentException(MESSAGE_ON_NOT_NUMBER);
 		}
 	}
 
 	private void validate(List<Integer> numbers) {
 		if (numbers == null || numbers.size() != 3) {
-			throw new IllegalArgumentException("3개의 야구공이어야 합니다.");
+			throw new IllegalArgumentException(MESSAGE_ON_INVALID_LENGTH);
 		}
 
 		int first = numbers.get(0);
 		int second = numbers.get(1);
 		int third = numbers.get(2);
 		if (first == second || second == third || third == first) {
-			throw new IllegalArgumentException("3개의 야구공은 서로 다른 숫자를 가져야 합니다.");
+			throw new IllegalArgumentException(MESSAGE_ON_DUPLICATE);
 		}
 	}
 
