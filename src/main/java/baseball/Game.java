@@ -38,17 +38,17 @@ public class Game {
 	private void play() {
 		CompareResult compareResult;
 		do {
-			View.info(MESSAGE_ON_GUESS);
+			View.out(MESSAGE_ON_GUESS);
 			Balls computerBalls = computer.getBalls();
 			Balls playerBalls = player.guess(Console.readLine());
 			compareResult = Balls.compare(computerBalls, playerBalls);
-			View.info(compareResult.toMessage());
+			View.out(compareResult.toMessage());
 		} while (!compareResult.isAnswer());
 	}
 
 	private GameExitCode end() {
-		View.info(MESSAGE_ON_GAME_END);
-		View.info(MESSAGE_ON_EXIT);
+		View.out(MESSAGE_ON_GAME_END);
+		View.out(MESSAGE_ON_EXIT);
 		return player.exit(Console.readLine());
 	}
 }

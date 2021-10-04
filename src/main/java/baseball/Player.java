@@ -12,10 +12,10 @@ public class Player {
 	}
 
 	GameExitCode exit(String input) {
-		if ("1".equals(input)) {
+		if (GameExitCode.RESTART.getCode().equals(input)) {
 			return GameExitCode.RESTART;
 		}
-		if ("2".equals(input)) {
+		if (GameExitCode.EXIT.getCode().equals(input)) {
 			return GameExitCode.EXIT;
 		}
 
