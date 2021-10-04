@@ -27,6 +27,17 @@ class PlayerTest {
 				NumberStringUtil.pick(str, 2)));
 	}
 
+	@DisplayName("입력 문자열리 옳지 않으면 야구공들을 만들어낼 수 없다.")
+	@ParameterizedTest
+	@ValueSource(strings = {"12", "1234", "a12", "abc"})
+	void guess_fail(String str) {
+		// given
+		Player player = new Player();
+
+		// when & then
+		assertThatExceptionOfType(BadInputException.class).isThrownBy(() -> player.guess(str));
+	}
+
 	@DisplayName("문자열로부터 게임 종료 코드를 반환한다.")
 	@Test
 	void exit() {
@@ -36,6 +47,6 @@ class PlayerTest {
 		// when & then
 		assertThat(player.exit("1")).isEqualTo(GameExitCode.RESTART);
 		assertThat(player.exit("2")).isEqualTo(GameExitCode.EXIT);
-		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> player.exit("abc"));
+		assertThatExceptionOfType(BadInputException.class).isThrownBy(() -> player.exit("abc"));
 	}
 }

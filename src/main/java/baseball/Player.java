@@ -3,7 +3,11 @@ package baseball;
 public class Player {
 
 	public Balls guess(String input) {
-		return new Balls(input);
+		try {
+			return new Balls(input);
+		} catch (IllegalArgumentException e) {
+			throw new BadInputException(e.getMessage());
+		}
 	}
 
 	GameExitCode exit(String input) {
@@ -14,6 +18,6 @@ public class Player {
 			return GameExitCode.EXIT;
 		}
 
-		throw new IllegalArgumentException("1 또는 2를 입력해주세요.");
+		throw new BadInputException("1 또는 2를 입력해주세요.");
 	}
 }

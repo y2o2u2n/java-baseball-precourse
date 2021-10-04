@@ -54,7 +54,6 @@
 
 - `Number`
     - [x] 1에서 9사이의 숫자 중 하나이다.
-    - [ ] 잘못된 값을 입력할 경우 예외를 던진다.
 - `Position`
     - [x] 0에서 2까지의 숫자 중 하나이다.
 - `Ball`
@@ -81,6 +80,7 @@
 - `Player`
     - [x] 사용자의 입력인 문자열로부터 `Balls`를 만들어낸다.
     - [x] 사용자의 입력인 문자열로부터 `GameExitCode`를 반환한다.
+    - [x] 사용자의 입력이 잘못되었을 경우 `BadInputException`을 던진다.
 - `Game`
     - [x] 게임을 시작하면 `NumberGenerator`로 `Computer`를 만든다.
     - [x] 게임을 플레이하면 `Player`가 정답을 맞출때까지 반복해서 추측할 수 있다.
