@@ -40,7 +40,7 @@ public class Game {
 		do {
 			View.out(MESSAGE_ON_GUESS);
 			Balls computerBalls = computer.getBalls();
-			Balls playerBalls = player.guess(Console.readLine());
+			Balls playerBalls = getPlayerBallsUntilValid();
 			compareResult = Balls.compare(computerBalls, playerBalls);
 			View.out(compareResult.toMessage());
 		} while (!compareResult.isAnswer());
@@ -49,6 +49,40 @@ public class Game {
 	private GameExitCode end() {
 		View.out(MESSAGE_ON_GAME_END);
 		View.out(MESSAGE_ON_EXIT);
-		return player.exit(Console.readLine());
+		return getGameExitCodeUntilValid();
+	}
+
+	private Balls getPlayerBallsUntilValid() {
+		Balls playerBalls;
+		do {
+			playerBalls = getPlayerBalls();
+		} while (playerBalls == null);
+		return playerBalls;
+	}
+
+	private Balls getPlayerBalls() {
+		try {
+			return player.guess(Console.readLine());
+		} catch (BadInputException e) {
+			View.out(e);
+			return null;
+		}
+	}
+
+	private GameExitCode getGameExitCodeUntilValid() {
+		GameExitCode code;
+		do {
+			code = getGameExitCode();
+		} while (code == null);
+		return code;
+	}
+
+	private GameExitCode getGameExitCode() {
+		try {
+			return player.exit(Console.readLine());
+		} catch (BadInputException e) {
+			View.out(e);
+			return null;
+		}
 	}
 }

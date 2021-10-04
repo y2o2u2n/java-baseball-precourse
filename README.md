@@ -86,5 +86,6 @@
     - [x] 게임을 플레이하면 `Player`가 정답을 맞출때까지 반복해서 추측할 수 있다.
     - [x] `CompareResult`가 정답이면 게임이 끝난다.
     - [x] 게임이 끝나면 게임을 `GameExitCode`에 따라 재시작하거나 종료할 수 있다.
+    - [x] `BadInputException`이 있을 경우 에러 메세지를 출력하며 `Player`는 다시 입력하여 계속 진행할 수 있다.
 - `GameExitCode`
     - [x] `RESTART`, `EXIT` 2가지 종류가 있다.
