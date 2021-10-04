@@ -1,6 +1,7 @@
 package baseball;
 
 public class Player {
+	private static final String MESSAGE_ON_BAD_GAME_EXIT_CODE_INPUT = "1 또는 2를 입력해주세요.";
 
 	public Balls guess(String input) {
 		try {
@@ -18,6 +19,6 @@ public class Player {
 			return GameExitCode.EXIT;
 		}
 
-		throw new BadInputException("1 또는 2를 입력해주세요.");
+		throw new BadInputException(MESSAGE_ON_BAD_GAME_EXIT_CODE_INPUT);
 	}
 }

@@ -5,12 +5,13 @@ import java.util.Objects;
 public class Position {
 	private static final int LOWER_BOUND = 0;
 	private static final int UPPER_BOUND = 2;
+	private static final String MESSAGE_ON_INVALID = "위치는 0에서 2사이어야 합니다.";
 
 	private final int value;
 
 	public Position(int value) {
 		if (!(value >= LOWER_BOUND && value <= UPPER_BOUND)) {
-			throw new IllegalArgumentException("위치는 0에서 2사이어야 합니다.");
+			throw new IllegalArgumentException(MESSAGE_ON_INVALID);
 		}
 
 		this.value = value;
