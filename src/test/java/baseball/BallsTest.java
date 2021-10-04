@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class BallsTest {
 
@@ -20,6 +21,20 @@ class BallsTest {
 		Balls balls = new Balls(a1, a2, a3);
 		// then
 		assertThat(balls.getValues()).isEqualTo(Arrays.asList(new Ball(0, a1), new Ball(1, a2), new Ball(2, a3)));
+	}
+
+	@DisplayName("야구공들을 생성할 수 있다.")
+	@ParameterizedTest
+	@ValueSource(strings = {"123", "257"})
+	void constructor(String str) {
+		// given & when
+		Balls balls = new Balls(str);
+		// then
+		assertThat(balls.getValues()).isEqualTo(
+			Arrays.asList(
+				new Ball(0, NumberStringUtil.pick(str, 0)),
+				new Ball(1, NumberStringUtil.pick(str, 1)),
+				new Ball(2, NumberStringUtil.pick(str, 2))));
 	}
 
 	@DisplayName("3개의 야구공이 서로 다른 숫자를 가지지 않으면 야구공들을 생성할 수 없다.")

@@ -1,6 +1,7 @@
 package baseball;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -10,26 +11,17 @@ public class Balls {
 	private final List<Ball> values;
 
 	public Balls(List<Integer> numbers) {
-		validate(numbers);
-
-		List<Ball> values = new ArrayList<>();
-		for (int i = 0; i <= 2; i++) {
-			values.add(new Ball(i, numbers.get(i)));
-		}
-
-		this.values = values;
+		this.values = makeBalls(numbers);
 	}
 
-	public Balls(int... nums) {
-		List<Integer> numbers = mapToList(nums);
-		validate(numbers);
+	public Balls(int... ints) {
+		List<Integer> numbers = mapToList(ints);
+		this.values = makeBalls(numbers);
+	}
 
-		List<Ball> values = new ArrayList<>();
-		for (int i = 0; i <= 2; i++) {
-			values.add(new Ball(i, numbers.get(i)));
-		}
-
-		this.values = values;
+	public Balls(String str) {
+		List<Integer> numbers = mapToList(str);
+		this.values = makeBalls(numbers);
 	}
 
 	public static CompareResult compare(Balls aBalls, Balls bBalls) {
@@ -53,13 +45,46 @@ public class Balls {
 		return pq.poll();
 	}
 
-	private List<Integer> mapToList(int... numbers) {
+	private List<Ball> makeBalls(List<Integer> numbers) {
+		validate(numbers);
+
+		List<Ball> values = new ArrayList<>();
+		for (int i = 0; i <= 2; i++) {
+			values.add(new Ball(i, numbers.get(i)));
+		}
+
+		return values;
+	}
+
+	private List<Integer> mapToList(int... ints) {
 		ArrayList<Integer> list = new ArrayList<>();
-		for (int number : numbers) {
-			list.add(number);
+
+		for (int i : ints) {
+			list.add(i);
 		}
 
 		return list;
+	}
+
+	private List<Integer> mapToList(String str) {
+		validate(str);
+
+		return Arrays.asList(
+			NumberStringUtil.pick(str, 0),
+			NumberStringUtil.pick(str, 1),
+			NumberStringUtil.pick(str, 2));
+	}
+
+	private void validate(String str) {
+		if (str == null || str.length() != 3) {
+			throw new IllegalArgumentException("3개의 야구공이어야 합니다.");
+		}
+
+		try {
+			Integer.parseInt(str);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException("숫자를 입력해야 합니다.");
+		}
 	}
 
 	private void validate(List<Integer> numbers) {
