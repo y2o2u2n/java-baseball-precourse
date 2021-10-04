@@ -14,7 +14,7 @@ class RandomNumberGeneratorTest {
 	@RepeatedTest(value = 100)
 	public void generate() {
 		RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-		List<Integer> numbers = randomNumberGenerator.generate(1, 9, 3);
+		List<Integer> numbers = randomNumberGenerator.generate();
 
 		assertAll(
 			() -> assertThat(numbers).hasSize(3),

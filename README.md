@@ -77,7 +77,7 @@
 - `RandomNumberGenerator`
     - [x] a부터 b까지 숫자 중 n개의 숫자를 중복되지 않게 생성할 수 있다.
 - `Computer`
-    - [ ] 임의의 서로 다른 3개의 수로 만들어진 `Balls`를 가진다.
+    - [x] 임의의 서로 다른 3개의 수로 만들어진 `Balls`를 가진다.
 - `Player`
     - [ ] `Computer`의 `Balls`를 알아맞추기 위해서 사용자의 입력으로부터 `Balls`를 만들어낸다.
 - `Game`

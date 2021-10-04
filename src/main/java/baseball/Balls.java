@@ -9,15 +9,26 @@ import java.util.PriorityQueue;
 public class Balls {
 	private final List<Ball> values;
 
-	public Balls(int first, int second, int third) {
-		if (first == second || second == third || third == first) {
-			throw new IllegalArgumentException("3개의 야구공은 서로 다른 숫자를 가져야 합니다.");
+	public Balls(List<Integer> numbers) {
+		validate(numbers);
+
+		List<Ball> values = new ArrayList<>();
+		for (int i = 0; i <= 2; i++) {
+			values.add(new Ball(i, numbers.get(i)));
 		}
 
-		ArrayList<Ball> values = new ArrayList<>();
-		values.add(new Ball(0, first));
-		values.add(new Ball(1, second));
-		values.add(new Ball(2, third));
+		this.values = values;
+	}
+
+	public Balls(int... nums) {
+		List<Integer> numbers = mapToList(nums);
+		validate(numbers);
+
+		List<Ball> values = new ArrayList<>();
+		for (int i = 0; i <= 2; i++) {
+			values.add(new Ball(i, numbers.get(i)));
+		}
+
 		this.values = values;
 	}
 
@@ -40,6 +51,28 @@ public class Balls {
 		}
 
 		return pq.poll();
+	}
+
+	private List<Integer> mapToList(int... numbers) {
+		ArrayList<Integer> list = new ArrayList<>();
+		for (int number : numbers) {
+			list.add(number);
+		}
+
+		return list;
+	}
+
+	private void validate(List<Integer> numbers) {
+		if (numbers == null || numbers.size() != 3) {
+			throw new IllegalArgumentException("3개의 야구공이어야 합니다.");
+		}
+
+		int first = numbers.get(0);
+		int second = numbers.get(1);
+		int third = numbers.get(2);
+		if (first == second || second == third || third == first) {
+			throw new IllegalArgumentException("3개의 야구공은 서로 다른 숫자를 가져야 합니다.");
+		}
 	}
 
 	public List<Ball> getValues() {

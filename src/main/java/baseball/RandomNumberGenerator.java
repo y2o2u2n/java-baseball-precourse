@@ -5,12 +5,13 @@ import java.util.List;
 
 import nextstep.utils.Randoms;
 
-public class RandomNumberGenerator {
-	public List<Integer> generate(int startInclusive, int endInclusive, int size) {
+public class RandomNumberGenerator implements NumberGenerator {
+	@Override
+	public List<Integer> generate() {
 		List<Integer> numbers = new ArrayList<>();
 
-		while (numbers.size() != size) {
-			int number = Randoms.pickNumberInRange(startInclusive, endInclusive);
+		while (numbers.size() != 3) {
+			int number = Randoms.pickNumberInRange(1, 9);
 			addOnDoesNotContain(numbers, number);
 		}
 
