@@ -80,6 +80,11 @@
     - [x] 임의의 서로 다른 3개의 수로 만들어진 `Balls`를 가진다.
 - `Player`
     - [x] 사용자의 입력인 문자열로부터 `Balls`를 만들어낸다.
+    - [x] 사용자의 입력인 문자열로부터 `GameExitCode`를 반환한다.
 - `Game`
-    - [ ] `CompareResult`가 정답이면 게임이 끝난다.
-    - [ ] 게임이 끝나면 게임을 다시 시작하거나 종료할 수 있다.
+    - [x] 게임을 시작하면 `NumberGenerator`로 `Computer`를 만든다.
+    - [x] 게임을 플레이하면 `Player`가 정답을 맞출때까지 반복해서 추측할 수 있다.
+    - [x] `CompareResult`가 정답이면 게임이 끝난다.
+    - [x] 게임이 끝나면 게임을 `GameExitCode`에 따라 재시작하거나 종료할 수 있다.
+- `GameExitCode`
+    - [x] `RESTART`, `EXIT` 2가지 종류가 있다.

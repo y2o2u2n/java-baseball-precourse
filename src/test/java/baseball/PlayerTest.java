@@ -3,6 +3,7 @@ package baseball;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -24,5 +25,17 @@ class PlayerTest {
 				NumberStringUtil.pick(str, 0),
 				NumberStringUtil.pick(str, 1),
 				NumberStringUtil.pick(str, 2)));
+	}
+
+	@DisplayName("문자열로부터 게임 종료 코드를 반환한다.")
+	@Test
+	void exit() {
+		// given
+		Player player = new Player();
+
+		// when & then
+		assertThat(player.exit("1")).isEqualTo(GameExitCode.RESTART);
+		assertThat(player.exit("2")).isEqualTo(GameExitCode.EXIT);
+		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> player.exit("abc"));
 	}
 }
